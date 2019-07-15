@@ -59,7 +59,7 @@ dfohe=coltrans.fit_transform(df)
 # print(dfohe7)
 
 from sklearn.model_selection import train_test_split
-xtr,xts,ytr,yts=train_test_split(dfohe,dfTarget,test_size=.1)
+xtr,xts,ytr,yts=train_test_split(dfohe,dfTarget,test_size=0,random_state=12)
 
 # logistic
 modelLog=LogisticRegression(solver='liblinear',multi_class='auto')
@@ -74,12 +74,12 @@ modelRandom=RandomForestClassifier() # n_estimators=50 : pembagian sub-sample un
 modelRandom.fit(xtr,ytr)
 
 # kmeans
-modelKmeans=KMeans(n_clusters=len(label7.classes_))
-modelKmeans.fit(xtr,ytr)
+# modelKmeans=KMeans(n_clusters=len(label7.classes_))
+# modelKmeans.fit(xtr,ytr)
 
 # extra tree
-modelExtra=ExtraTreesClassifier()
-modelExtra.fit(xtr,ytr)
+# modelExtra=ExtraTreesClassifier()
+# modelExtra.fit(xtr,ytr)
 
 # print(dfTarget)
 # print(modelLog.predict(dfohe))
